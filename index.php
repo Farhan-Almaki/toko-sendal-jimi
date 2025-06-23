@@ -35,12 +35,12 @@ session_start();
     <div class="navbar-box">
       <ul class="navbar-list">
         <li><a href="./"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="./shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        <li><a href="./shop.php"><i class="fas fa-shopping-cart"></i> Shop</a></li>
         <?php if (!isset($_SESSION['login'])) { ?>
-          <li><a href="./auth/login"><i class="fas fa-lock"></i> Signin</a></li>
+          <li><a href="./auth/login.php"><i class="fas fa-lock"></i> Signin</a></li>
         <?php } else { ?>
-          <li><a href="./my-cart"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
-          <li><a href="./auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          <li><a href="./my-cart.php"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
+          <li><a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         <?php } ?>
       </ul>
     </div>
