@@ -12,10 +12,11 @@ function getMyCart($user_id)
     }
     
     $query = "SELECT tc.keranjang_id, tp.product_name, tp.product_stok, tp.product_price, tc.qty, tc.is_payed, tp.product_id
-              FROM tb_keranjang tc
-              JOIN tb_product tp ON tc.product_id = tp.product_id
-              WHERE tc.user_id = ? AND tc.is_payed = '2'
-              ORDER BY tc.keranjang_id DESC";
+            FROM tb_keranjang tc
+            JOIN tb_product tp ON tc.product_id = tp.product_id
+            WHERE tc.user_id = ? AND tc.is_payed = 2
+            ORDER BY tc.keranjang_id DESC";
+
 
     $stmt = $conn->prepare($query);
     if (!$stmt) {
