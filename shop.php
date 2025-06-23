@@ -78,7 +78,7 @@ if (isset($_SESSION['login'])) {
                 
                 <?php if (isset($_SESSION['login'])) { ?>
                   <?php if ($prod['product_stok'] > 0) : ?>
-                    <p onclick="addToCart(<?= $prod['product_id'] ?>, 1, <?= $user_id ?>)" style="cursor: pointer;" class="button button-purple my-4">
+                    <p onclick="addToCart(<?= $prod['product_id'] ?>, 1)" style="cursor: pointer;" class="button button-purple my-4">
                       <i class="fas fa-shopping-cart"></i> Add to cart
                     </p>
                   <?php else : ?>
@@ -148,7 +148,7 @@ if (isset($_SESSION['login'])) {
     AOS.init();
 
     // ajax add to cart
-    function addToCart(productId, qty, user_id) {
+    function addToCart(productId, qty) {
       console.log('Menambahkan produk ke cart:', productId, qty, user_id);
       
       // Tampilkan loading
@@ -166,7 +166,6 @@ if (isset($_SESSION['login'])) {
         method: 'POST',
         data: {
           product_id: productId,
-          user_id: user_id,
           qty: qty
         },
         dataType: 'json',
