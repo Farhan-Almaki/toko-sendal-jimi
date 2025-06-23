@@ -37,10 +37,10 @@ if (isset($_POST["login"])) {
             $_SESSION['dataUser'] = $row;
 
             if ($row['role'] === "2") {
-                header('Location: ../index.php');
+                header('Location: ./index.php');
                 exit;
             } elseif ($row['role'] === '1') {
-                header('Location: ../admin.php');
+                header('Location: ./admin.php');
                 exit;
             }
         } else {
