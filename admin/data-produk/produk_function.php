@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "db_toko");
+require_once '../../database/koneksi.php';
 
 function query($query)
 {

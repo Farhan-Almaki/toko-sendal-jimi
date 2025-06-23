@@ -2,7 +2,7 @@
 // File: laporan/produk_function.php
 
 // Koneksi ke database (Anda bisa sesuaikan jika perlu)
-$conn = mysqli_connect("localhost", "root", "", "sendal_jimi"); 
+require_once '../../database/koneksi.php'; 
 
 function query($query)
 {
