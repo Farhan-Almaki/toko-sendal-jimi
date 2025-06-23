@@ -1,7 +1,7 @@
 <?php
 // admin/data-pesanan/pesanan_function.php
 
-require __DIR__ . '/../../database/koneksi.php';
+require_once '../../database/koneksi.php'; 
 require __DIR__ . '/../../controller/transaksiController.php';
 
 if (isset($_GET['action']) && isset($_GET['id'])) {
