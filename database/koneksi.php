@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php'; // pastikan path ke autoload.php benar
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 // Ambil dari .env
