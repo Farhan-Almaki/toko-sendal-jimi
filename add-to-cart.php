@@ -36,6 +36,7 @@ if (!isset($_POST['product_id']) || !isset($_POST['qty'])) {
 
 $product_id = (int)$_POST['product_id'];
 $qty = (int)$_POST['qty'];
+error_log("DEBUG: Session user_id = " . json_encode($_SESSION['dataUser']));
 $user_id = $_SESSION['dataUser']['user_id'];
 
 // Validasi input
