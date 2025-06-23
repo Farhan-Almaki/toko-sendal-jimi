@@ -40,7 +40,7 @@ if (isset($_POST["login"])) {
                 header('Location: ./index.php');
                 exit;
             } elseif ($row['role'] === '1') {
-                header('Location: ./admin.php');
+                header('Location: ./admin/index.php');
                 exit;
             }
         } else {
