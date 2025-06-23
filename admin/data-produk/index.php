@@ -181,10 +181,10 @@ if ($hapus === "true") {
             </div>
             <nav>
                 <ul>
-                    <li><a href="../"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li><a href="./" class="active"><i class="fas fa-box-archive"></i><span>Data Produk</span></a></li>
-                    <li><a href="../data-pesanan.php"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
-                    <li><a href="../data-laporan/"><i class="fas fa-file-alt"></i><span>Laporan</span></a></li>
+                    <li><a href="../index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li><a href="./index.php" class="active"><i class="fas fa-box-archive"></i><span>Data Produk</span></a></li>
+                    <li><a href="../data-pesanan/index.php"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
+                    <li><a href="../data-laporan/index.php"><i class="fas fa-file-alt"></i><span>Laporan</span></a></li>
                     <li><a href="../../auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
                 </ul>
             </nav>
