@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php'; // pastikan path ke autoload.php benar
+require_once __DIR__ . '/../vendor/autoload.php'; // pastikan path ke autoload.php benar
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
