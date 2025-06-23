@@ -149,7 +149,7 @@ if (isset($_SESSION['login'])) {
 
     // ajax add to cart
     function addToCart(productId, qty) {
-      console.log('Menambahkan produk ke cart:', productId, qty, user_id);
+      console.log('Menambahkan produk ke cart:', productId, qty);
       
       // Tampilkan loading
       Swal.fire({
