@@ -8,15 +8,16 @@ require __DIR__ . '/controller/cartController.php';
 require __DIR__ . '/controller/bankController.php'; 
 require __DIR__ . '/controller/transaksiController.php';
 
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['login']) && isset($_SESSION['dataUser']['user_id'])) {
     $user_id = $_SESSION['dataUser']['user_id'];
-    $fullname = $_SESSION['dataUser']['fullname'];
-    $alamat = $_SESSION['dataUser']['alamat'];
-    $contact = $_SESSION['dataUser']['contact'];
+    $fullname = $_SESSION['dataUser']['fullname'] ?? '';
+    $alamat = $_SESSION['dataUser']['alamat'] ?? '';
+    $contact = $_SESSION['dataUser']['contact'] ?? '';
 } else {
     echo "<script>alert('Anda harus login untuk checkout.'); window.location.href = './auth/login.php';</script>";
     exit;
 }
+
 
 $myCart = getMyCart($user_id);
 $response_message = '';

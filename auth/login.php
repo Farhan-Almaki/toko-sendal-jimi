@@ -34,11 +34,13 @@ if (isset($_POST["login"])) {
             if (password_verify($password, $row["password"])) {
                 $_SESSION["login"] = true;
                 $_SESSION['dataUser'] = [
-                    'user_id' => $row['user_id'],     // << WAJIB ADA BRO
+                    'user_id' => $row['user_id'],
                     'username' => $row['username'],
-                    'role' => $row['role']
+                    'role' => $row['role'],
+                    'fullname' => $row['fullname'] ?? '',
+                    'alamat' => $row['alamat'] ?? '',
+                    'contact' => $row['contact'] ?? '',
                 ];
-
             if ($row['role'] === "2") {
             header('Location: /index.php');
             exit;
