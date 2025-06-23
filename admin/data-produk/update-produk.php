@@ -158,7 +158,7 @@ if (isset($_POST['edit-product'])) {
             <ul>
                 <li><a href="#" class="active"><i class="fas fa-edit"></i><span>Update Produk</span></a></li>
                 <li><a href="./"><i class="fas fa-arrow-left"></i><span>Kembali</span></a></li>
-                <li><a href="../../auth/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+                <li><a href="../../auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
             </ul>
         </nav>
     </aside>

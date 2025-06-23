@@ -35,12 +35,12 @@ if (isset($_SESSION['login'])) {
     <div class="navbar-box">
       <ul class="navbar-list">
         <li><a href="./"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="./shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        <li><a href="./shop.php"><i class="fas fa-shopping-cart"></i> Shop</a></li>
         <?php if (!isset($_SESSION['login'])) { ?>
-          <li><a href="./auth/login"><i class="fas fa-lock"></i> Signin</a></li>
+          <li><a href="./auth/login.php"><i class="fas fa-lock"></i> Signin</a></li>
         <?php } else { ?>
-          <li><a href="./my-cart"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
-          <li><a href="./auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          <li><a href="./my-cart.php"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
+          <li><a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         <?php } ?>
       </ul>
     </div>
@@ -87,7 +87,7 @@ if (isset($_SESSION['login'])) {
                     </p>
                   <?php endif; ?>
                 <?php } else { ?>
-                  <a href="./auth/login" class="button button-purple my-4"><i class="fas fa-lock"></i> Signin to order</a>
+                  <a href="./auth/login.php" class="button button-purple my-4"><i class="fas fa-lock"></i> Signin to order</a>
                 <?php } ?>
               </div>
             </div>
@@ -103,8 +103,8 @@ if (isset($_SESSION['login'])) {
         <div class="col-md-4 my-3 mx-auto" data-aos="fade-in">
           <h4 class="text-light text-poppins font-weight-bold">Useful Links</h4>
           <div class="d-flex flex-column">
-            <a href="#home" class="text-light font-weight-light">Home</a>
-            <a href="#shop" class="text-light font-weight-light">Shop</a>
+            <a href="./index.php" class="text-light font-weight-light">Home</a>
+            <a href="./shop.php" class="text-light font-weight-light">Shop</a>
           </div>
         </div>
         <div class="col-md-4 my-3 mx-auto" data-aos="fade-in">
@@ -184,7 +184,7 @@ if (isset($_SESSION['login'])) {
               text: response.message || 'Silakan login terlebih dahulu',
               confirmButtonText: 'Login Sekarang'
             }).then(() => {
-              window.location.href = './auth/login';
+              window.location.href = './auth/login.php';
             });
           } else if (response.statusCode === 400) {
             Swal.fire({

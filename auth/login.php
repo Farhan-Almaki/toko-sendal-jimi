@@ -37,20 +37,20 @@ if (isset($_POST["login"])) {
             $_SESSION['dataUser'] = $row;
 
             if ($row['role'] === "2") {
-                header('Location: ../index');
+                header('Location: ../index.php');
                 exit;
             } elseif ($row['role'] === '1') {
-                header('Location: ../admin');
+                header('Location: ../admin.php');
                 exit;
             }
         } else {
             echo "<script>
-            window.location.href = './login?response=passfalse'
+            window.location.href = './login.php?response=passfalse'
             </script>";
         }
     } else {
         echo "<script>
-            window.location.href = './login?response=false'
+            window.location.href = './login.php?response=false'
             </script>";
     }
 }
@@ -92,7 +92,7 @@ if (isset($_POST["login"])) {
                             <?php endif; ?>
                             <strong><?= $response ?></strong>
                             <button type="button" class="close" id="close-alert">
-                                <a href="./login"><i class="fas fa-times"></i></a>
+                                <a href="./login.php"><i class="fas fa-times"></i></a>
                             </button>
                         </div>
                     <?php endif; ?>
@@ -108,7 +108,7 @@ if (isset($_POST["login"])) {
                         <button type="submit" name="login" class="btn btn-primary btn-block">Sign in</button>
 
                         <div class="sign-up">
-                            Don't have an account? <a href="./register">Create One</a>
+                            Don't have an account? <a href="./register.php">Create One</a>
                         </div>
                     </form>
                 </div>

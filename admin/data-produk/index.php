@@ -183,9 +183,9 @@ if ($hapus === "true") {
                 <ul>
                     <li><a href="../"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li><a href="./" class="active"><i class="fas fa-box-archive"></i><span>Data Produk</span></a></li>
-                    <li><a href="../data-pesanan"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
+                    <li><a href="../data-pesanan.php"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
                     <li><a href="../data-laporan/"><i class="fas fa-file-alt"></i><span>Laporan</span></a></li>
-                    <li><a href="../../auth/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+                    <li><a href="../../auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
                 </ul>
             </nav>
         </aside>
@@ -202,7 +202,7 @@ if ($hapus === "true") {
                 <?php endif; ?>
 
                 <h1 class="mb-4" style="font-weight: 600;">Manajemen Produk</h1>
-                <a href="./tambah-produk" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Barang</a>
+                <a href="./tambah-produk.php" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Barang</a>
                 
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">

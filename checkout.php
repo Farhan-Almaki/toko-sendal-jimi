@@ -14,7 +14,7 @@ if (isset($_SESSION['login'])) {
     $alamat = $_SESSION['dataUser']['alamat'];
     $contact = $_SESSION['dataUser']['contact'];
 } else {
-    echo "<script>alert('Anda harus login untuk checkout.'); window.location.href = './auth/login';</script>";
+    echo "<script>alert('Anda harus login untuk checkout.'); window.location.href = './auth/login.php';</script>";
     exit;
 }
 
@@ -36,12 +36,12 @@ if (isset($_GET['r'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validasi dasar, pastikan metode dan nomor pembayaran ada
     if (empty($_POST['metode_pembayaran_user']) || empty($_POST['nomor_pembayaran_user'])) {
-        header('Location: ./checkout?r=bankfalse');
+        header('Location: ./checkout.php?r=bankfalse');
         exit;
     }
 
     if (empty($myCart)) {
-        echo "<script>alert('Keranjang Anda kosong, tidak dapat membuat transaksi.'); window.location.href = './my-cart';</script>";
+        echo "<script>alert('Keranjang Anda kosong, tidak dapat membuat transaksi.'); window.location.href = './my-cart.php';</script>";
         exit;
     }
 
@@ -56,10 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($transaksi_id_baru > 0) {
         // Redirect ke detail-transaksi dengan parameter sukses
-        header("Location: ./detail-transaksi?r=trxsuccess");
+        header("Location: ./detail-transaksi.php?r=trxsuccess");
         exit;
     } else {
-        header('Location: ./checkout?r=trxfailed');
+        header('Location: ./checkout.php?r=trxfailed');
         exit;
     }
 }
@@ -114,13 +114,13 @@ $ewallet_options = [
         <div class="navbar-box">
             <ul class="navbar-list">
                 <li><a href="./"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="./shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                <li><a href="./shop.php"><i class="fas fa-shopping-cart"></i> Shop</a></li>
                 <?php if (!isset($_SESSION['login'])) { ?>
-                    <li><a href="./auth/login"><i class="fas fa-lock"></i> Signin</a></li>
+                    <li><a href="./auth/login.php"><i class="fas fa-lock"></i> Signin</a></li>
                 <?php } else { ?>
-                    <li><a href="./my-cart"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
+                    <li><a href="./my-cart.php"><i class="fas fa-shopping-cart"></i> My Cart</a></li>
                     <li><a href="./detail-transaksi"><i class="fas fa-list"></i> Pesanan</a></li>
-                    <li><a href="./auth/logout"><i class="fas fa-lock"></i> Logout</a></li>
+                    <li><a href="./auth/logout.php"><i class="fas fa-lock"></i> Logout</a></li>
                 <?php } ?>
             </ul>
         </div>

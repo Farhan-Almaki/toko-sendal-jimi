@@ -60,7 +60,7 @@ session_start();
             dengan kualitas terbaik. 
             Dan kami adalah spesialis sandal Crocs yang terpercaya. Temukan koleksi terlengkap yang menawarkan kenyamanan tak tertandingi dan gaya yang ikonik untuk seluruh keluarga.
           </p>
-          <a href="./shop" class="button button-purple">Belanja Sekarang</a>
+          <a href="./shop.php" class="button button-purple">Belanja Sekarang</a>
         </div>
         <div class="col-md-6 my-auto mx-auto" data-aos="zoom-in">
           <div class="d-flex justify-content-center align-items-center flex-column">
@@ -79,8 +79,8 @@ session_start();
         <div class="col-md-4 my-3 mx-auto" data-aos="fade-in">
           <h4 class="text-light text-poppins font-weight-bold">Useful Links</h4>
           <div class="d-flex flex-column">
-            <a href="#home" class="text-light font-weight-light">Home</a>
-            <a href="#shop" class="text-light font-weight-light">Shop</a>
+            <a href="./home.php" class="text-light font-weight-light">Home</a>
+            <a href="./shop.php" class="text-light font-weight-light">Shop</a>
           </div>
         </div>
         <div class="col-md-4 my-3 mx-auto" data-aos="fade-in">

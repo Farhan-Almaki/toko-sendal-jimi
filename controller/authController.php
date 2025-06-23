@@ -18,7 +18,7 @@ function registrasi($data)
     $result = mysqli_query($conn, "SELECT username FROM tb_user WHERE username = '$username'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>
-            window.location.href = '../auth/register?response=usnfalse'
+            window.location.href = '../auth/register.php?response=usnfalse'
 			</script>";
         return false;
     }
@@ -26,7 +26,7 @@ function registrasi($data)
     // cek konfirmasi password
     if ($password !== $password2) {
         echo "<script>
-            window.location.href = '../auth/register?response=passfalse'
+            window.location.href = '../auth/register.php?response=passfalse'
 			</script>";
         return false;
     }

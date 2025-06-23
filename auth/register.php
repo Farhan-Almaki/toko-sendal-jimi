@@ -22,12 +22,12 @@ if (isset($_POST['register'])) {
     if (registrasi($_POST) > 0) {
         // Redirect langsung ke halaman login dengan pesan sukses
         echo "<script>
-            window.location.href = './login?response=signupsuccess';
+            window.location.href = './login.php?response=signupsuccess';
         </script>";
         exit;
     } else {
         echo "<script>
-                window.location.href = './register?response=signupfalse';
+                window.location.href = './register.php?response=signupfalse';
             </script>";
     }
 }
@@ -63,7 +63,7 @@ if (isset($_POST['register'])) {
                         <div class="alert alert-<?= $alert_type ?> alert-dismissible fade show" role="alert">
                             <strong><?= $response ?>!</strong>
                             <button type="button" class="close" id="close-alert">
-                                <a href="./register"><i class="fas fa-times"></i></a>
+                                <a href="./register.php"><i class="fas fa-times"></i></a>
                             </button>
                         </div>
                     <?php endif; ?>

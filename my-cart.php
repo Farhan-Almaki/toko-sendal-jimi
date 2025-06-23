@@ -6,7 +6,7 @@ require './controller/cartController.php';
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['login'])) {
-    header("Location: ./auth/login");
+    header("Location: ./auth/login.php");
     exit;
 }
 
@@ -20,17 +20,17 @@ if (isset($_POST['update'])) {
     if (is_int($result) && $result > 0) {
         echo "<script>
             alert('Keranjang berhasil diperbarui!');
-            window.location.href = './my-cart';
+            window.location.href = './my-cart.php';
         </script>";
     } elseif (is_string($result)) {
         echo "<script>
             alert('$result');
-            window.location.href = './my-cart';
+            window.location.href = './my-cart.php';
         </script>";
     } else {
         echo "<script>
             alert('Gagal memperbarui keranjang!');
-            window.location.href = './my-cart';
+            window.location.href = './my-cart.php';
         </script>";
     }
 }
@@ -41,12 +41,12 @@ if (isset($_POST['delete'])) {
     if (deleteCart($id) > 0) {
         echo "<script>
             alert('Item berhasil dihapus dari keranjang!');
-            window.location.href = './my-cart';
+            window.location.href = './my-cart.php';
         </script>";
     } else {
         echo "<script>
             alert('Gagal menghapus item dari keranjang!');
-            window.location.href = './my-cart';
+            window.location.href = './my-cart.php';
         </script>";
     }
 }
@@ -95,13 +95,13 @@ if (isset($_GET['r'])) {
         <div class="navbar-box">
             <ul class="navbar-list">
                 <li><a href="./"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="./shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                <li><a href="./shop.php"><i class="fas fa-shopping-cart"></i> Shop</a></li>
                 <?php if (!isset($_SESSION['login'])) { ?>
-                    <li><a href="./auth/login"><i class="fas fa-lock"></i> Signin</a></li>
+                    <li><a href="./auth/login.php"><i class="fas fa-lock"></i> Signin</a></li>
                 <?php } else { ?>
-                    <li><a href="./my-cart"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
-                    <li><a href="./detail-transaksi"><i class="fas fa-list"></i> Pesanan</a></li>
-                    <li><a href="./auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="./my-cart.php"><i class="fas fa-shopping-bag"></i> My Cart</a></li>
+                    <li><a href="./detail-transaksi.php"><i class="fas fa-list"></i> Pesanan</a></li>
+                    <li><a href="./auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -129,8 +129,8 @@ if (isset($_GET['r'])) {
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li><a href="./my-cart" class="btn btn-outline-primary btn-sm btn-block">Keranjang Saya</a></li>
-                            <li class="mt-2"><a href="./detail-transaksi" class="btn btn-outline-secondary btn-sm btn-block">Pesanan Saya</a></li>
+                            <li><a href="./my-cart.php" class="btn btn-outline-primary btn-sm btn-block">Keranjang Saya</a></li>
+                            <li class="mt-2"><a href="./detail-transaksi.php" class="btn btn-outline-secondary btn-sm btn-block">Pesanan Saya</a></li>
                         </ul>
                     </div>
                 </div>
@@ -208,7 +208,7 @@ if (isset($_GET['r'])) {
                                         <td colspan="6" class="text-muted">
                                             <i class="fas fa-shopping-cart fa-3x mb-3"></i>
                                             <p>Keranjang Anda kosong</p>
-                                            <a href="./shop" class="btn btn-primary">Mulai Belanja</a>
+                                            <a href="./shop.php" class="btn btn-primary">Mulai Belanja</a>
                                         </td>
                                     </tr>
                                     <?php endif; ?>
@@ -231,7 +231,7 @@ if (isset($_GET['r'])) {
                                     <h4>Total: <span class="text-success">Rp. <?= number_format($total, 0, ',', '.') ?></span></h4>
                                     
                                     <?php if (!$stok_habis): ?>
-                                        <a href="./checkout" class="btn btn-success btn-lg mt-2">
+                                        <a href="./checkout.php" class="btn btn-success btn-lg mt-2">
                                             <i class="fas fa-credit-card"></i> Checkout
                                         </a>
                                     <?php else: ?>
@@ -240,7 +240,7 @@ if (isset($_GET['r'])) {
                                         </button>
                                     <?php endif; ?>
                                     
-                                    <a href="./shop" class="btn btn-outline-primary btn-lg mt-2 ml-2">
+                                    <a href="./shop.php" class="btn btn-outline-primary btn-lg mt-2 ml-2">
                                         <i class="fas fa-shopping-cart"></i> Lanjut Belanja
                                     </a>
                                 </div>
