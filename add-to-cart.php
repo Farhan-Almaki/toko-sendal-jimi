@@ -176,13 +176,15 @@ try {
             sendJsonResponse(400, "Kuantitas ($qty) melebihi stok yang tersedia ($available_stock).");
         }
 
-        $stmt_insert = $conn->prepare("INSERT INTO tb_keranjang (product_id, user_id, qty, is_payed) VALUES (?, ?, ?, '2')");
+        $keranjang_grup = uniqid('GRUP_');
+
+        $stmt_insert = $conn->prepare("INSERT INTO tb_keranjang (product_id, user_id, qty, is_payed, keranjang_grup) VALUES (?, ?, ?, '2', ?)");
         if (!$stmt_insert) {
             error_log("ERROR: Prepare insert failed - " . $conn->error);
             throw new Exception('Error preparing insert query: ' . $conn->error);
         }
         
-        $stmt_insert->bind_param("iii", $product_id, $user_id, $qty);
+        $stmt_insert->bind_param("iiis", $product_id, $user_id, $qty, $keranjang_grup);
         $execute_result = $stmt_insert->execute();
         $affected_rows = $stmt_insert->affected_rows;
         
