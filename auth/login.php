@@ -30,11 +30,14 @@ if (isset($_POST["login"])) {
     if (mysqli_num_rows($result) === 1) {
 
         //cek password
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
-            // set session
-            $_SESSION["login"] = true;
-            $_SESSION['dataUser'] = $row;
+            $row = mysqli_fetch_assoc($result);
+            if (password_verify($password, $row["password"])) {
+                $_SESSION["login"] = true;
+                $_SESSION['dataUser'] = [
+                    'user_id' => $row['user_id'],     // << WAJIB ADA BRO
+                    'username' => $row['username'],
+                    'role' => $row['role']
+                ];
 
             if ($row['role'] === "2") {
             header('Location: /index.php');

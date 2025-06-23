@@ -37,7 +37,11 @@ if (!isset($_POST['product_id']) || !isset($_POST['qty'])) {
 $product_id = (int)$_POST['product_id'];
 $qty = (int)$_POST['qty'];
 error_log("DEBUG: Session user_id = " . json_encode($_SESSION['dataUser']));
+if (!isset($_SESSION['dataUser']['user_id'])) {
+    sendJsonResponse(401, 'User ID tidak ditemukan dalam sesi login.');
+}
 $user_id = $_SESSION['dataUser']['user_id'];
+
 
 // Validasi input
 if ($product_id <= 0) {
