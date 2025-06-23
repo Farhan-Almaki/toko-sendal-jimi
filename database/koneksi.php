@@ -10,10 +10,10 @@ if (file_exists($envPath)) {
 }
 
 // Ambil environment variables
-$host = $_ENV['DB_HOST'] ?? 'localhost';
-$user = $_ENV['DB_USER'] ?? 'root';
-$pass = $_ENV['DB_PASS'] ?? '';
-$name = $_ENV['DB_NAME'] ?? 'sendal_jimi';
+$host = getenv('DB_HOST') ?: 'localhost';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASS') ?: '';
+$name = getenv('DB_NAME') ?: 'sendal_jimi';
 
 // Koneksi ke database
 $conn = mysqli_connect($host, $user, $pass, $name);
