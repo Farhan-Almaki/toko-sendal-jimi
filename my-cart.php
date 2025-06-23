@@ -1,5 +1,18 @@
 <?php
 session_start();
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+exit;
+
+
+if (!isset($_SESSION['dataUser']) || !isset($_SESSION['dataUser']['user_id'])) {
+    echo "<script>
+        alert('Session login tidak valid. Silakan login ulang.');
+        window.location.href = './auth/login.php';
+    </script>";
+    exit;
+}
 
 require './database/koneksi.php';
 require './controller/cartController.php';
