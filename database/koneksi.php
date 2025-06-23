@@ -1,15 +1,19 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php'; // pastikan path ke autoload.php benar
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
+// Hanya load .env jika file ada (untuk lokal development)
+$envPath = dirname(__DIR__) . '/.env';
+if (file_exists($envPath)) {
+    $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+    $dotenv->load();
+}
 
-// Ambil dari .env
-$host = $_ENV['DB_HOST'];
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASS'];
-$name = $_ENV['DB_NAME'];
+// Ambil environment variables
+$host = $_ENV['DB_HOST'] ?? 'localhost';
+$user = $_ENV['DB_USER'] ?? 'root';
+$pass = $_ENV['DB_PASS'] ?? '';
+$name = $_ENV['DB_NAME'] ?? 'sendal_jimi';
 
 // Koneksi ke database
 $conn = mysqli_connect($host, $user, $pass, $name);
