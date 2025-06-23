@@ -150,6 +150,10 @@ if (isset($_SESSION['login'])) {
     // ajax add to cart
     function addToCart(productId, qty) {
       console.log('Menambahkan produk ke cart:', productId, qty);
+      console.log('Data yang dikirim:', {
+          product_id: productId,
+          qty: qty
+      });
       
       // Tampilkan loading
       Swal.fire({
