@@ -164,20 +164,21 @@ if (!isset($_SESSION['login'])) {
 </head>
 
 <body>
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <span class="site-title"><i class="fa-solid fa-store"></i> Toko Jimi</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                <li><a href="./data-produk.php"><i class="fas fa-box-archive"></i><span>Data Produk</span></a></li>
-                <li><a href="./data-pesanan.php"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
-                <li><a href="./data-laporan.php"><i class="fas fa-file-alt"></i><span>Laporan</span></a></li>
-                <li><a href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-            </ul>
-        </nav>
-    </aside>
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <span class="site-title"><i class="fa-solid fa-store"></i> Toko Jimi</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="./index.php" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+            <li><a href="./data-produk/index.php"><i class="fas fa-box-archive"></i><span>Data Produk</span></a></li>
+            <li><a href="./data-pesanan/index.php"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
+            <li><a href="./data-laporan/index.php"><i class="fas fa-file-alt"></i><span>Laporan</span></a></li>
+            <li><a href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+        </ul>
+    </nav>
+</aside>
+
 
     <main class="main-content">
         <header class="header">
