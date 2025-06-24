@@ -108,7 +108,7 @@ function upload()
     $nama_file_baru .= $ekstensi_gambar;
 
     // FIX: Path upload yang benar - sesuaikan dengan struktur folder
-    $upload_path = '../../img/' . $nama_file_baru;
+    $upload_path = __DIR__ . '/../../assets/img/' . $nama_file_baru;
     
     // Pastikan folder img ada
     if (!file_exists('../../img/')) {
