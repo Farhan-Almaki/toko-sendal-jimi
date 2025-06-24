@@ -32,7 +32,6 @@ function tambah($data)
     return mysqli_affected_rows($conn);
 }
 
-
 function update($data)
 {
     global $conn;
@@ -66,7 +65,7 @@ function delete($id) {
     return mysqli_affected_rows($conn);
 }
 
-// upload func - DIPERBAIKI
+// UPLOAD FUNCTION - KHUSUS UNTUK WINDOWS/XAMPP
 function upload()
 {
     $nama_file = $_FILES['gambar']['name'];
@@ -104,24 +103,44 @@ function upload()
     // Buat nama file unik
     $nama_file_baru = uniqid() . '.' . $ekstensi_gambar;
 
-    // Path upload
-    $target_dir = __DIR__ . '/../../assets/img/';
+    // SOLUSI UNTUK WINDOWS - gunakan path absolut
+    $document_root = $_SERVER['DOCUMENT_ROOT'];
+    $project_folder = '/toko-sendal-jimi-main'; // sesuaikan dengan nama folder project Anda
+    $target_dir = $document_root . $project_folder . '/assets/img/';
+    
+    // Alternatif jika path di atas tidak work, gunakan path relatif sederhana
+    // $target_dir = '../../assets/img/';
+    
+    // Buat direktori jika belum ada
     if (!file_exists($target_dir)) {
-        mkdir($target_dir, 0777, true);
+        if (!mkdir($target_dir, 0777, true)) {
+            // Jika gagal buat di assets, gunakan folder lokal
+            $target_dir = './uploads/';
+            if (!file_exists($target_dir)) {
+                mkdir($target_dir, 0777, true);
+            }
+        }
     }
+    
     $upload_path = $target_dir . $nama_file_baru;
+
+    // Debug - uncomment untuk troubleshooting jika masih error
+    // echo "Target dir: " . $target_dir . "<br>";
+    // echo "Upload path: " . $upload_path . "<br>";
+    // echo "File exists: " . (file_exists($target_dir) ? 'Yes' : 'No') . "<br>";
+    // echo "Is writable: " . (is_writable($target_dir) ? 'Yes' : 'No') . "<br>";
+    // die();
 
     if (move_uploaded_file($tmp_name, $upload_path)) {
         return $nama_file_baru;
     } else {
         echo "<script>
-                alert('Gagal mengupload gambar!');
+                alert('Gagal mengupload gambar! Path: $upload_path');
                 window.location.href = './';
             </script>";
         return false;
     }
 }
-
 
 function getProductStock($product_id) {
     global $conn;
