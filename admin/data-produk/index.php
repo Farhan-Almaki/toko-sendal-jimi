@@ -225,7 +225,7 @@ if ($hapus === "true") {
                                     <td class="text-right">Rp. <?= number_format($item['product_price'], 0, ',', '.') ?></td>
                                     <td class="text-center"><?= htmlspecialchars($item['product_stok']) ?></td>
                                     <td class="text-center">
-                                        <a href="./update-produk?id=<?= $item['product_id'] ?>" class="btn btn-warning btn-sm">
+                                        <a href="./update-produk.php?id=<?= $item['product_id'] ?>" class="btn btn-warning btn-sm">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
                                         <a href="?hapus=true&id=<?= $item['product_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus produk?')">
