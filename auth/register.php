@@ -96,7 +96,7 @@ if (isset($_POST['register'])) {
                         </div>
                         <button type="submit" name="register" class="btn btn-primary btn-block">Sign Up</button>
                         <div class="sign-up">
-                            Have an account? <a href="./login">Sign In</a>
+                            Have an account? <a href="./login.php">Sign In</a>
                         </div>
                     </form>
                 </div>
