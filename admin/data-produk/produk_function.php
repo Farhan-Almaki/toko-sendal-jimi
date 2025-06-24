@@ -113,9 +113,7 @@ function upload()
 
     // Tentukan path relatif dari file ini (produk_function.php) ke folder tujuan (assets/img)
     // Berdasarkan struktur folder Anda, kita perlu naik 2 level direktori
-// INI VERSI YANG BENAR
-    $target_dir = '/app/assets/img/'; 
-       
+    $target_dir = __DIR__ . '/../../assets/img/';
     $upload_path = $target_dir . $nama_file_baru;
 
     // Pastikan direktori tujuan ada dan bisa ditulisi (writable)
