@@ -78,42 +78,38 @@ function upload()
         echo "<script>
                 alert('Pilih gambar terlebih dahulu!');
                 window.location.href = './';
-			</script>";
+            </script>";
         return false;
     }
 
     $ekstensi_gambar_valid = ['jpg', 'jpeg', 'png', 'gif'];
-    $ekstensi_gambar = explode('.', $nama_file);
-    $ekstensi_gambar = strtolower(end($ekstensi_gambar));
+    $ekstensi_gambar = strtolower(pathinfo($nama_file, PATHINFO_EXTENSION));
     
     if (!in_array($ekstensi_gambar, $ekstensi_gambar_valid)) {
         echo "<script>
                 alert('Yang anda upload bukan gambar! Format yang diizinkan: jpg, jpeg, png, gif');
                 window.location.href = './';
-			</script>";
+            </script>";
         return false;
     }
 
-    if ($ukuran_file > 5000000) { // 5MB
+    if ($ukuran_file > 5000000) {
         echo "<script>
                 alert('Ukuran gambar terlalu besar! Maksimal 5MB');
                 window.location.href = './';
-		</script>";
+            </script>";
         return false;
     }
 
     // Buat nama file unik
-    $nama_file_baru = uniqid();
-    $nama_file_baru .= '.';
-    $nama_file_baru .= $ekstensi_gambar;
+    $nama_file_baru = uniqid() . '.' . $ekstensi_gambar;
 
-    // FIX: Path upload yang benar - sesuaikan dengan struktur folder
-    $upload_path = __DIR__ . '/../../assets/img/' . $nama_file_baru;
-    
-    // Pastikan folder img ada
-    if (!file_exists('../../img/')) {
-        mkdir('../../img/', 0777, true);
+    // Path upload
+    $target_dir = __DIR__ . '/../../assets/img/';
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
     }
+    $upload_path = $target_dir . $nama_file_baru;
 
     if (move_uploaded_file($tmp_name, $upload_path)) {
         return $nama_file_baru;
@@ -121,10 +117,11 @@ function upload()
         echo "<script>
                 alert('Gagal mengupload gambar!');
                 window.location.href = './';
-		</script>";
+            </script>";
         return false;
     }
 }
+
 
 function getProductStock($product_id) {
     global $conn;
